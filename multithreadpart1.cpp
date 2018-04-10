@@ -6,12 +6,11 @@
 #define MIN 100
 #define MAX 1000
 
-uint32_t *pid_map;
 pthread_mutex_t lock;
 
 // Creates and initializes a data structure for representing pids; returns —1 if unsuccessfull, 1 if successfull 
-int allocate_map(long long size) {
-	pid_map = (uint32_t *)calloc(getBitmapSize(size), sizeof(uint32_t));
+int allocate_map(long size) {
+	pid_map = (int *)calloc(getBitmapSize(size), sizeof(int));//it's temporay 
 	if(pid_map == NULL)
 		return -1;
 	return 1;
